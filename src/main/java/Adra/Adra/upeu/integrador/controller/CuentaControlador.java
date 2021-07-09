@@ -19,15 +19,15 @@ import Adra.Adra.upeu.integrador.daoimpl.CuentaDaoImpl;
 public class CuentaControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CuentaDao cdao = new CuentaDaoImpl();
-	private Gson gson = new Gson();  
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CuentaControlador() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private Gson gson = new Gson();
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CuentaControlador() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,16 +35,31 @@ public class CuentaControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
+		String user = request.getParameter("user");
+		String pass = request.getParameter("pass");
+		System.out.println(user+" "+pass);
+		if (cdao.validar(user, pass)==1) {	
+			response.sendRedirect("./html/menuAsesor.html");
+			//request.getRequestDispatcher("html/menuAsesor.html").forward(request, response);
+		} else {
+			out.println("Incorrecto");
+			//request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		
+		/*
+		int x = 0;
 		int opcion = Integer.parseInt(request.getParameter("opc"));
 		switch (opcion) {
 		case 1:
 			String user = request.getParameter("user");
 			String pass = request.getParameter("pass");
 			System.out.println(user+" "+pass);
-			if (cdao.validar(user, pass)==1) {
-				request.getRequestDispatcher("./recursos/html/menuAsesor.html").forward(request, response);
+			if (cdao.validar(user, pass)==1) {	
+				//response.sendRedirect("/html/menuAsesor.html");
+				request.getRequestDispatcher("html/menuAsesor.html").forward(request, response);
 			} else {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				out.println("Incorrecto");
+				//request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 			
 			break;
@@ -54,13 +69,15 @@ public class CuentaControlador extends HttpServlet {
 		default:
 			System.out.println("No se encontro el valor uno o dos en el opc mandado");
 			break;
-		}
+		}*/
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

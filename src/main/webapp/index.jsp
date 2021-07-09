@@ -16,7 +16,7 @@
         <article
           class="col d-none d-md-flex align-items-center justify-content-center"
         >
-          <img class="w-100" src="./recursos/assets/img/login_ayuda_Adra.png" alt="" />
+          <img class="w-100" src="recursos/assets/img/login_ayuda_Adra.png" alt="" />
         </article>
         <!-- Login 5 columnas -->
         <article
@@ -30,10 +30,10 @@
           <div class="w-75">
             <!-- Imagen del login -->
             <div class="d-flex justify-content-center img__login">
-              <img src="./recursos/assets/img/adra.png" alt="" />
+              <img src="recursos/assets/img/adra.png" alt="" />
             </div>
             <!-- Formulario -->
-            <form class="container-fluid color_adra pb-3 pd__top">
+            <form class="container-fluid color_adra pb-3 pd__top" method="post" action="CuentaControlador">
               <div class="row">
                 <!-- Cabezera -->
                 <div class="col-12 mb-3">
@@ -57,6 +57,7 @@
                     "
                     placeholder="Usuario"
                     id="user"
+                    name="user"
                     aria-label="Username"
                   />
                 </div>
@@ -73,18 +74,16 @@
                     "
                     placeholder="password"
                     id="pass"
+                    name="pass"
                   />
                 </div>
                 <!-- boton -->
                 <div class="col-12 mb-2 d-flex justify-content-center">
-                  <button
+                  <input
                     class="btn bg_btn text-white w-75"
-                    id="btn_iniciar"
-                    type="button"
-                    name="ingresar"
-                  >
-                    Iniciar Sesión
-                  </button>
+                    type="submit"
+                    value="Iniciar Sesión">
+            
                 </div>
 
                 <div class="col-12 mb-2 text-center">
