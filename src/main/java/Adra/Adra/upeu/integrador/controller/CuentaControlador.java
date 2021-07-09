@@ -37,9 +37,9 @@ public class CuentaControlador extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
-		System.out.println(user+" "+pass);
+		//System.out.println(user+" "+pass);
 		if (cdao.validar(user, pass)==1) {	
-			response.sendRedirect("./html/menuAsesor.html");
+			response.sendRedirect("./html/menuAsesor.jsp");
 			//request.getRequestDispatcher("html/menuAsesor.html").forward(request, response);
 		} else {
 			out.println("Incorrecto");

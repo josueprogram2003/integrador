@@ -35,6 +35,12 @@
 		<description></description>
 		<servlet-class>Adra.Adra.upeu.integrador.controller.CuentaControlador</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AreaControlador</servlet-name>
+		<display-name>AreaControlador</display-name>
+		<description></description>
+		<servlet-class>Adra.Adra.upeu.integrador.controller.AreaControlador</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AxisServlet</servlet-name>
 		<url-pattern>/services/*</url-pattern>
@@ -42,5 +48,9 @@
 	<servlet-mapping>
 		<servlet-name>CuentaControlador</servlet-name>
 		<url-pattern>/CuentaControlador</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AreaControlador</servlet-name>
+		<url-pattern>/AreaControlador</url-pattern>
 	</servlet-mapping>
 </web-app>
